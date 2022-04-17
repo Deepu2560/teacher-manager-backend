@@ -24,9 +24,9 @@ router.post("", async (req, res) => {
 router.get("", async (req, res) => {
   try {
     const page = req.query.page || 1;
-    const size = req.query.size || 15;
+    const size = 10;
 
-    const totalPage = Math.ceil((await User.find().countDocuments()) / size);
+    const totalPage = Math.ceil((await Teacher.find().countDocuments()) / size);
 
     const user = await Teacher.find()
       .skip((page - 1) * size)
