@@ -15,6 +15,30 @@ const classController = require("./src/Controllers/classes_contoller");
 
 const adminController = require("./src/Controllers/admin_controller");
 
+const Class = require("../Models/class_model");
+
+const Teacher = require("../Models/teacher_model");
+
+const User = require("../Models/admin_model");
+
+app.get("/", async (req, res) => {
+  try {
+    const teacher_data = await Teacher.find().lean().exec();
+    const class_data = await Class.find().lean().exec();
+    const user_data = await User.find().lean().exec();
+
+    console.log("getting all documents of database");
+
+    res
+      .status(200)
+      .send({ error: false, data: { teacher_data, class_data, user_data } });
+  } catch (error) {
+    console.log("ERROR:", error);
+
+    res.status(500).send({ error: true, data: "" });
+  }
+});
+
 app.use("/teacher", teacherController);
 
 app.use("/classes", classController);
