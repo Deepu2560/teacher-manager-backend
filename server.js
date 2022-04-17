@@ -15,11 +15,11 @@ const classController = require("./src/Controllers/classes_contoller");
 
 const adminController = require("./src/Controllers/admin_controller");
 
-const Class = require("../Models/class_model");
+const Class = require("./src/Models/class_model");
 
-const Teacher = require("../Models/teacher_model");
+const Teacher = require("./src/Models/teacher_model");
 
-const User = require("../Models/admin_model");
+const User = require("./src/Models/admin_model");
 
 app.get("/", async (req, res) => {
   try {
