@@ -22,7 +22,7 @@ app.use("/classes", classController);
 app.use("/admin", adminController);
 
 /* app.listen to start server on 8080 port */
-app.listen(8080, async () => {
+app.listen(process.env.PORT || 8080, async () => {
   try {
     await connect();
     console.log("connected to server");
