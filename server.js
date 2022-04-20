@@ -1,9 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
 // useing express middleware for getting data in json form
 app.use(express.json());
+app.use(cors());
 
 // getting connect function form config/db
 const connect = require("./src/Config/db");
